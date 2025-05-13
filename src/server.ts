@@ -26,7 +26,16 @@ app.use("/api", limiter);
 
 app.use(bodyParser.json());
 
-app.use(cors());
+const options = [
+  cors({
+    origin: "*",
+    methods: "*",
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  }),
+];
+
+app.use(options);
 
 app.use("/api/chat", chatRouter);
 
