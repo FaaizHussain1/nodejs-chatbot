@@ -39,4 +39,6 @@ app.use(options);
 
 app.use("/api/chat", chatRouter);
 
-module.exports = app;
+app.listen(port, async () => {
+  console.log(`Server is running on port ${port}`);
+});
